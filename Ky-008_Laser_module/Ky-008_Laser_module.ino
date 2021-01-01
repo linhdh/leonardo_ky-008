@@ -16,19 +16,26 @@ void loop() {
   pattern2();
   delay(1000);
   pattern3();
+  delay(1000);
+  pattern4();
   delay(1000);  
 }
 
-void pattern3()
-{
-  for (int i = pinNum-1; i > 0; i--) {
-    blinkLed(i, 20, 20, 20);
+void pattern4() {
+  for (int i = 0; i < pinNum; i++) {
+    blinkLed(laserPins[i], 20, 50, 50);
     delay(1000);
   }
 }
 
-void pattern2()
-{
+void pattern3() {
+  for (int i = pinNum-1; i >= 0; i--) {
+    blinkLed(laserPins[i], 20, 20, 20);
+    delay(1000);
+  }
+}
+
+void pattern2() {
   for (int i = 0; i < pinNum; i++) {
     digitalWrite(laserPins[i], HIGH);
     delay(200);
@@ -40,8 +47,7 @@ void pattern2()
   }
 }
 
-void pattern1()
-{
+void pattern1() {
   for (int i = 0; i < pinNum; i++) {
     digitalWrite(laserPins[i], HIGH);
   }
@@ -52,8 +58,7 @@ void pattern1()
   delay(1000);
 }
 
-void blinkLed(int pin, int time, int millisecondOn, int millisecondOff)
-{
+void blinkLed(int pin, int time, int millisecondOn, int millisecondOff) {
   for (int i = 0; i < time; i++) {
     digitalWrite(pin, HIGH);
     delay(millisecondOn);
