@@ -1,4 +1,4 @@
-int laserPins[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11}; //KY-008 Laser modules
+int laserPins[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11}; //KY-008 Laser modules connect to these pins
 int pinNum = 10;
 
 void setup() {
@@ -58,7 +58,7 @@ void pattern1() {
   delay(1000);
 }
 
-void blinkLed(int pin, int time, int millisecondOn, int millisecondOff) {
+void blinkLed(unsigned short pin, unsigned short time, unsigned short millisecondOn, unsigned short millisecondOff) {
   for (int i = 0; i < time; i++) {
     digitalWrite(pin, HIGH);
     delay(millisecondOn);
